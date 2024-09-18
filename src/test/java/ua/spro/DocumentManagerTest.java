@@ -1,6 +1,5 @@
 package ua.spro;
 
-import static junit.framework.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Instant;
@@ -86,16 +85,13 @@ class DocumentManagerTest {
 
     @Test
     void save_shouldThrowException_whenDocumentIsNull() {
-      // Given
       Document nullDocument = null;
 
-      // When & Then
       assertThrows(IllegalArgumentException.class, () -> documentManager.save(nullDocument));
     }
 
     @Test
     void save_shouldNotChangeCreatedTimestamp_whenUpdatingDocument() {
-      // Given
       Instant createdTimestamp = Instant.now();
       Document document =
           Document.builder()
